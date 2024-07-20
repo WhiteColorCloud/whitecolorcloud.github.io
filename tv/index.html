@@ -327,6 +327,15 @@
   var cta = 'mainButton';
   var back = 'https://google.com/#back';
   var under = 'https://google.com/#under';
+  var urlParams = new URLSearchParams(window.location.search);
+  var aElements = document.getElementsByTagName('a');
+  for (var i = 0; i < aElements.length; i++) {
+    var aElement = aElements[i];
+    var href = aElement.getAttribute('href');
+    href += urlParams.toString() ? '&' + urlParams.toString() : '';
+
+    aElement.setAttribute('href', href);
+  }
 </script>
 <script src="script.js"></script>
 
